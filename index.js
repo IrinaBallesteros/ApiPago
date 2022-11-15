@@ -15,7 +15,7 @@ const pathName = "/pagos"
 
 
 app.get(pathName,
-    await (req, res)=>{
+    async (req, res)=>{
         console.log("Recibimos peticion")
         console.log(req.query.idclient)
         res.send(await pagosService.pagosgetExport(req.query.idclient))

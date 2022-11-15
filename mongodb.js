@@ -12,12 +12,20 @@ const getClient = async (nameDb) =>{
     )
     .catch(
         (error)=>{
-            console.log/"Error al conectarse a la db"
+            console.log("Error al conectarse a la bd")
         }
     )
     return client
 }
 
+const getCollection = async (client, nameDb) =>{
+   
+    const db =client.db(nameDb)
+
+    const collection = await db.collection("pagos")
+    
+    return collection
+}
 const closeClient = async (client)=>{
 
     await client.close()
