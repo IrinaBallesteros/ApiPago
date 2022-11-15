@@ -15,10 +15,10 @@ const pathName = "/pagos"
 
 
 app.get(pathName,
-    (req, res)=>{
+    await (req, res)=>{
         console.log("Recibimos peticion")
-        console.log(req)
-        res.send(pagosService.pagosgetExport())
+        console.log(req.query.idclient)
+        res.send(await pagosService.pagosgetExport(req.query.idclient))
     }
     )
 
